@@ -3,19 +3,14 @@
 namespace Methods
 {
     internal class Program
-    {//1
-        static void Swap(ref int x, ref int y, ref int e1, ref int e2, ref int e3, ref int e4)
+    { //1
+        static void Swap(ref int x, ref int y)
         {
             var t = x;
             x = y;
             y = t;
-            var temp = e3;
-            e3 = e4;
-            e4 = temp;
-            var temp2 = e1;
-            e1 = e2;
-            e2 = temp2;
         }
+
         static int IndexOfMin(int[] array, int n)
         {
             int minIndex = n;
@@ -26,24 +21,25 @@ namespace Methods
                     minIndex = i;
                 }
             }
+
             return minIndex;
         }
+
         static int[] SelectionSort(int[] array1)
         {
-            for(int i = 0; i < array1.Length; i++)
+            for (int i = 0; i < array1.Length; i++)
             {
                 var minIndex = IndexOfMin(array1, i);
-                if(minIndex != i)
+                if (minIndex != i)
                 {
                     Swap(ref array1[minIndex], ref array1[i]);
                 }
             }
+
             return array1;
         }
-        
-        //2
-        
 
+        //2
         private static int[] BubbleSort(int[] array)
 
         {
@@ -59,9 +55,7 @@ namespace Methods
             return array;
         }
 
-       
         //3
-        
         static int[] InsertionSort(int[] array2)
         {
             for (var i = 1; i < array2.Length; i++)
@@ -73,8 +67,10 @@ namespace Methods
                     j--;
                 }
             }
+
             return array2;
         }
+
         static void Main(string[] args)
         {
             var array = new int[] { 1, 3, 2, 7, 3 };
@@ -86,3 +82,4 @@ namespace Methods
             Console.ReadLine();
         }
     }
+}
