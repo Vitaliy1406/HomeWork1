@@ -4,11 +4,17 @@ namespace Methods
 {
     internal class Program
     {//1
-        static void Swap(ref int x, ref int y)
+        static void Swap(ref int x, ref int y, ref int e1, ref int e2, ref int e3, ref int e4)
         {
             var t = x;
             x = y;
             y = t;
+            var temp = e3;
+            e3 = e4;
+            e4 = temp;
+            var temp2 = e1;
+            e1 = e2;
+            e2 = temp2;
         }
         static int IndexOfMin(int[] array, int n)
         {
@@ -22,30 +28,21 @@ namespace Methods
             }
             return minIndex;
         }
-        static int[] SelectionSort(int[] array)
+        static int[] SelectionSort(int[] array1)
         {
-            for(int i = 0; i < array.Length; i++)
+            for(int i = 0; i < array1.Length; i++)
             {
-                var minIndex = IndexOfMin(array, i);
+                var minIndex = IndexOfMin(array1, i);
                 if(minIndex != i)
                 {
-                    Swap(ref array[minIndex], ref array[i]);
+                    Swap(ref array1[minIndex], ref array1[i]);
                 }
             }
-            return array;
+            return array1;
         }
-        static void Main(string[] args)
-        {
-            var array = new int[] { 10, 3, 2, 0, 1 };
-            Console.WriteLine("Sort array: {0}", string.Join(",", SelectionSort(array)));
-        }
+        
         //2
-        static void Swap(ref int e1, ref int e2)
-        {
-            var temp = e1;
-            e1 = e2;
-            e2 = temp;
-        }
+        
 
         private static int[] BubbleSort(int[] array)
 
@@ -62,36 +59,30 @@ namespace Methods
             return array;
         }
 
+       
+        //3
+        
+        static int[] InsertionSort(int[] array2)
+        {
+            for (var i = 1; i < array2.Length; i++)
+            {
+                var j = i;
+                while ((j > 0) && (array2[j - 1] > array2[i]))
+                {
+                    Swap(ref array2[j - 1], ref array2[j]);
+                    j--;
+                }
+            }
+            return array2;
+        }
         static void Main(string[] args)
         {
             var array = new int[] { 1, 3, 2, 7, 3 };
             Console.WriteLine($"Sort arrays: {string.Join(", ", BubbleSort(array))}");
-            Console.ReadLine();
-        }
-        //3
-        static void Swap(ref int e1, ref int e2)
-        {
-            var temp = e1;
-            e1 = e2;
-            e2 = temp;
-        }
-        static int[] InsertionSort(int[] array)
-        {
-            for (var i = 1; i < array.Length; i++)
-            {
-                var j = i;
-                while ((j > 0) && (array[j - 1] > array[i]))
-                {
-                    Swap(ref array[j - 1], ref array[j]);
-                    j--;
-                }
-            }
-            return array;
-        }
-        static void Main(string[] args)
-        {
-            var array = new int[] { 10, 3, 2, 7, 7 };
-            Console.WriteLine("Sort array: {0}", string.Join(",", InsertionSort(array)));
+            var array1 = new int[] { 10, 3, 2, 0, 1 };
+            Console.WriteLine("Sort array: {0}", string.Join(",", SelectionSort(array1)));
+            var array2 = new int[] { 10, 3, 2, 7, 7 };
+            Console.WriteLine("Sort array: {0}", string.Join(",", InsertionSort(array2)));
             Console.ReadLine();
         }
     }
