@@ -9,7 +9,7 @@ static bool CompareTwoArrays(char[] a, char[] b)
     {
         return false;
     }
-​
+
     for (int i = 0; i < a.Length; i++)
     {
         if (a[i] != b[i])
@@ -17,7 +17,7 @@ static bool CompareTwoArrays(char[] a, char[] b)
             return false;
         }
     }
-​
+
     return true;
 }
 //2
@@ -42,7 +42,7 @@ static void Analyze(string input, out int numAlphabetic, out int numDigits, out 
         }
     }
 }
-​
+
 //P.3 Sort that will return string that contains all characters from input string sorted in alphabetical order (e.g. 'Hello' -> 'ehllo')
 static string SortedString(string enteredString)
 {
@@ -50,7 +50,7 @@ static string SortedString(string enteredString)
     Array.Sort(characters);
     return new string(characters);
 }
-​
+
 //P.4  Duplicate that will return array of characters that are duplicated in input string (e.g. 'Hello and hi' -> ['h', 'l'])
 static List<char> ListOfDuplicates(string enteredString)
 {
@@ -67,6 +67,6 @@ static List<char> ListOfDuplicates(string enteredString)
             seen.Add(c);
         }
     }
-​
+
     return duplicates;
 }
