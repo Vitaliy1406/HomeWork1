@@ -2,6 +2,11 @@
 Analyze("qwerty", out int numAlphabetic, out int numDigits, out int numSpecial);
 var sorted = SortedString("qwerty");
 List<char> arr = ListOfDuplicates("qwerty");
+Console.WriteLine(areEqual);
+Console.WriteLine(sorted);
+Console.WriteLine(arr);
+Console.WriteLine();
+
 //1
 static bool CompareTwoArrays(char[] a, char[] b)
 {
@@ -41,6 +46,7 @@ static void Analyze(string input, out int numAlphabetic, out int numDigits, out 
             numSpecial++;
         }
     }
+     
 }
 
 //P.3 Sort that will return string that contains all characters from input string sorted in alphabetical order (e.g. 'Hello' -> 'ehllo')
